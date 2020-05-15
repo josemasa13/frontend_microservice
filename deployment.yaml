@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-microservice
+  labels:
+    app: frontend-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-microservice
+  template:
+    metadata:
+      labels:
+        app: frontend-microservice
+    spec:
+      containers:
+      - name: frontend-microservice
+        image: josemarcial1311/frontend_microservice
+        ports:
+        - containerPort: 8100
